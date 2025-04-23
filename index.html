@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshini Akunuri | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Screen 1: Hero Section -->
+<div id="screen-1" class="main-container hero-section">
+  <div class="hero-left">
+    <h1 class="hero-greeting">Hello,</h1>
+    <h1 class="hero-name-line">I am <span class="highlight-name">Harshini Akunuri,</span></h1>
+    <p class="hero-role">Aspiring Data Scientist | LLM Explorer</p>
+
+    <!-- ✅ Side-by-Side Buttons -->
+    <div style="margin-top: 20px; display: flex; gap: 15px; flex-wrap: wrap;">
+      <!-- Explore Portfolio Button -->
+      <button class="action-btn" onclick="showScreen('screen-2')">
+        Explore Portfolio
+      </button>
+
+      <!-- Download Resume Button -->
+      <a href="images/Harshini_Akunuri_Resume.pdf" download>
+        <button class="action-btn">
+          📄 Download Resume
+        </button>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="images/profile-pic.jpg" alt="Profile Photo" class="hero-img" />
+  </div>
+</div>
+
+
+<!-- Screen 2: Grid Navigation -->
+<div id="screen-2" class="screen-2" style="display: none;">
+
+ <!-- ✅ Home Icon (Top-Left) for Screen 2 -->
+<div style="position: fixed; top: 20px; left: 20px; z-index: 999;">
+  <img src="images/home-icon.png" alt="Home" style="width: 40px; cursor: pointer;" onclick="showScreen('screen-1')" />
+</div>
+
+<!-- ✅ Mail Icon (Top-Right) for Screen 2 -->
+<div style="position: fixed; top: 20px; right: 20px; z-index: 999;">
+  <a href="mailto:harshiniakunuri59@gmail.com" title="Send me an email">
+    <img src="images/mail.png" alt="Email" style="width: 25px; cursor: pointer;" />
+  </a>
+</div>
+
+
+  <main class="screen-2-body">
+    <span class="close-button" onclick="backToScreen2()">&times;</span>
+
+    <div class="grid-container">
+      <div class="grid-item"><img src="assets/about-me.png" /><p>ABOUT ME</p></div>
+      <div class="grid-item"><img src="assets/skills.png" /><p>SKILLS</p></div>
+      <div class="grid-item"><img src="assets/work-experience.png" /><p>WORK</p></div>
+      <div class="grid-item"><img src="assets/education.png" /><p>EDUCATION</p></div>
+      <div class="grid-item"><img src="assets/projects.png" /><p>PROJECTS</p></div>
+      <div class="grid-item"><img src="assets/certifications.png" /><p>CERTIFICATIONS</p></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 <strong>Harshini Akunuri.</strong> All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/harshini-akunuri/" target="_blank">
+        <img src="images/linkedin-icon.png" alt="LinkedIn" />
+      </a>
+      <a href="https://github.com/ha723-web?tab=repositories" target="_blank">
+        <img src="images/github-icon.png" alt="GitHub" />
+      </a>
+    </div>
+  </footer>
+</div>
+
+
+<!-- Screen 3: About Me -->
+<div id="screen-3" class="main-container" style="display: none; position: relative;">
+  <!-- Close button (top right) -->
+  <span class="close-button" onclick="backToScreen2()">&times;</span>
+
+  <!-- About Me Card -->
+  <div style="background-color: #121212; border-radius: 12px; padding: 32px; margin: 60px auto;
+              max-width: 720px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white; text-align: left;">
+    <p class="about-text" style="margin: 0; font-size: 1.1rem; line-height: 1.6;">
+      I’m Harshini Akunuri, a dedicated Data Scientist and AI Engineer with a Master’s in Computer Science.
+      I work as a Teaching Assistant for the Large Language Models (LLM) course at Northern Arizona University.
+      I specialize in building intelligent systems using Machine Learning and Natural Language Processing (NLP).
+      With strong experience in Python, R, SQL, and cloud technologies, I’m passionate about applying AI to solve
+      real-world problems and create meaningful impact.
+    </p>
+  </div>
+
+  <!-- Back Button -->
+  <button onclick="backToScreen2()" class="ask-anything">Back</button>
+</div>
+
+
+<!-- Screen 4: Skills Full Page -->
+<div id="screen-4" class="main-container" style="display: none; position: relative;">
+  <!-- Close button (top right) -->
+  <span class="close-button" onclick="backToScreen2()">&times;</span>
+
+  <!-- Skill Card 1 -->
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto;
+              max-width: 720px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white;">
+    <h3 class="skill-title" style="margin-bottom: 15px;">Programming Languages</h3>
+    <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <span>Python</span>
+      <span>Java</span>
+      <span>HTML</span>
+      <span>CSS</span>
+    </div>
+  </div>
+
+  <!-- Skill Card 2 -->
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto;
+              max-width: 720px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white;">
+    <h3 class="skill-title" style="margin-bottom: 15px;">Databases</h3>
+    <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <span>SQL</span>
+      <span>NoSQL</span>
+    </div>
+  </div>
+
+  <!-- Skill Card 3 -->
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto;
+              max-width: 720px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white;">
+    <h3 class="skill-title" style="margin-bottom: 15px;">Tools & Frameworks</h3>
+    <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <span>Git</span>
+      <span>Scikit-learn</span>
+      <span>TensorFlow</span>
+      <span>PyTorch</span>
+    </div>
+  </div>
+
+  <!-- Skill Card 4 -->
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto;
+              max-width: 720px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white;">
+    <h3 class="skill-title" style="margin-bottom: 15px;">AI / ML / GenAI</h3>
+    <div class="skill-tags" style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <span>OpenCV</span>
+      <span>BART</span>
+      <span>LLMs</span>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <button onclick="backToScreen2()" class="ask-anything">Back</button>
+</div>
+
+
+<!-- Screen 5: Work Experience -->
+<div id="screen-5" class="main-container" style="display: none; position: relative;">
+  <span class="close-button" onclick="backToScreen2()">&times;</span>
+
+  <!-- Entries -->
+  <!-- Entry Template Applied for Each Below -->
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto; max-width: 720px;
+              box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white; text-align: left; display: flex; align-items: flex-start; gap: 20px;">
+    <img src="images/nau.png" class="company-logo" style="margin-top: 4px;" />
+    <div style="flex: 1; margin-top: 4px;">
+      <h3 class="job-title">NAU - Teaching Assistant</h3>
+      <p>Flagstaff, Arizona — <i>June 2024 - Present</i></p>
+      <div class="tags" style="margin: 10px 0;"><span>LLMs</span><span>Python</span><span>SQL</span></div>
+      <ul style="margin: 0; padding-left: 20px; padding-bottom: 0;">
+        <li>Assisted in teaching and mentoring students on LLM concepts and real-world applications.</li>
+        <li>Developed and evaluated assignments related to fine-tuning LLMs and transformer architectures.</li>
+        <li>Provided technical guidance on Python-based LLM frameworks and Hugging Face.</li>
+        <li>Conducted office hours and troubleshooting sessions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto; max-width: 720px;
+              box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white; text-align: left; display: flex; align-items: flex-start; gap: 20px;">
+    <img src="images/nau.png" class="company-logo" style="margin-top: 4px;" />
+    <div style="flex: 1; margin-top: 4px;">
+      <h3 class="job-title">NAU - International Student Leader</h3>
+      <p>Flagstaff, Arizona — <i>June 2024 - Present</i></p>
+      <div class="tags" style="margin: 10px 0;"><span>Leadership</span><span>Time Management</span><span>Student Services</span></div>
+      <ul style="margin: 0; padding-left: 20px; padding-bottom: 0;">
+        <li>Helped international students adjust to U.S. academics, culture, and campus life.</li>
+        <li>Led cultural events and support sessions to ease their transition.</li>
+        <li>Guided them in adapting to homework styles, communication, and education systems.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto; max-width: 720px;
+              box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white; text-align: left; display: flex; align-items: flex-start; gap: 20px;">
+    <img src="images/be.png" class="company-logo" style="margin-top: 4px;" />
+    <div style="flex: 1; margin-top: 4px;">
+      <h3 class="job-title">Bytes-Edge - Machine Learning Associate</h3>
+      <p>Hyderabad, India — <i>June 2023 - Dec 2023</i></p>
+      <div class="tags" style="margin: 10px 0;"><span>REST APIs</span><span>TensorFlow</span><span>Scikit-learn</span></div>
+      <ul style="margin: 0; padding-left: 20px; padding-bottom: 0;">
+        <li>Developed and optimized ML models, increasing prediction accuracy by 25% and reducing false positives by 15%.</li>
+        <li>Built scalable ETL pipelines using Python & SQL, cutting data processing time by 40%.</li>
+        <li>Designed interactive dashboards in Power BI & Tableau, boosting customer engagement by 30%.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto; max-width: 720px;
+              box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white; text-align: left; display: flex; align-items: flex-start; gap: 20px;">
+    <img src="images/ou.png" class="company-logo" style="margin-top: 4px;" />
+    <div style="flex: 1; margin-top: 4px;">
+      <h3 class="job-title">Osmania University - Student Coordinator</h3>
+      <p>Hyderabad, India — <i>May 2022 - July 2022</i></p>
+      <div class="tags" style="margin: 10px 0;"><span>Project Management</span><span>Team Leadership</span><span>Time Management</span></div>
+      <ul style="margin: 0; padding-left: 20px; padding-bottom: 0;">
+        <li>Led and organized college programs and events, collaborating with diverse teams to plan and execute festivals, workshops, and initiatives.</li>
+        <li>Developed strong skills in project management, event planning, and team leadership, ensuring smooth coordination of logistics, timelines, and resources.</li>
+        <li>Enhanced stakeholder management and problem-solving abilities, thriving in dynamic environments and promoting a collaborative and adaptable work culture.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto; max-width: 720px;
+              box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white; text-align: left; display: flex; align-items: flex-start; gap: 20px;">
+    <img src="images/svtech.png" class="company-logo" style="margin-top: 4px;" />
+    <div style="flex: 1; margin-top: 4px;">
+      <h3 class="job-title">SV-Tech - Business Intelligence Analyst Intern</h3>
+      <p>Hyderabad, India — <i>May 2022 - July 2022</i></p>
+      <div class="tags" style="margin: 10px 0;"><span>Data Mining</span><span>Data Intelligence</span><span>Data Visualization</span></div>
+      <ul style="margin: 0; padding-left: 20px; padding-bottom: 0;">
+        <li>Analyzed 1M+ records using Python & SQL, improving accuracy by 25% and query speed by 35%.</li>
+        <li>Built predictive models for customer retention, increasing retention rates by 15%.</li>
+        <li>Automated data scraping, reducing manual effort by 50%.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto; max-width: 720px;
+              box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white; text-align: left; display: flex; align-items: flex-start; gap: 20px;">
+    <img src="images/svt.png" class="company-logo" style="margin-top: 4px;" />
+    <div style="flex: 1; margin-top: 4px;">
+      <h3 class="job-title">Siddhi Vinayaka Logistics Pvt Ltd - Data Analyst Intern</h3>
+      <p>Hyderabad, India — <i>July 2019 - Dec 2021</i></p>
+      <div class="tags" style="margin: 10px 0;"><span>Statistical Data Analysis</span><span>Tableau</span><span>PowerBI</span></div>
+      <ul style="margin: 0; padding-left: 20px; padding-bottom: 0;">
+        <li>Automated financial tracking using SQL, ensuring 100% accuracy in reporting.</li>
+        <li>Built dashboards for better forecasting and decision-making.</li>
+        <li>Implemented automation to reduce data processing time by 30%.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <button onclick="backToScreen2()" class="ask-anything">Back</button>
+</div>
+
+<!-- Screen 6: Education -->
+<div id="screen-6" class="main-container" style="display: none; position: relative;">
+  <!-- Close button -->
+  <span class="close-button" onclick="backToScreen2()">&times;</span>
+
+  <!-- Education Card 1 -->
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto;
+              max-width: 720px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white; text-align: left;
+              display: flex; align-items: flex-start; gap: 20px;">
+    <img src="images/nau.png" class="company-logo" style="margin-top: 4px;" />
+    <div style="flex: 1; margin-top: 4px;">
+      <h3 class="education-title">Master Of Science - Computer Science</h3>
+      <p style="margin: 5px 0;">Northern Arizona University — <i>Jan 2023 – May 2025</i></p>
+      <div class="tags" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+        <span>Teaching Assistant</span>
+        <span>International Student Leader</span>
+        <span>LLMs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education Card 2 -->
+  <div style="background-color: #121212; border-radius: 12px; padding: 24px; margin: 40px auto;
+              max-width: 720px; box-shadow: 0 0 12px rgba(255, 255, 255, 0.08); color: white; text-align: left;
+              display: flex; align-items: flex-start; gap: 20px;">
+    <img src="images/ou.png" class="company-logo" style="margin-top: 4px;" />
+    <div style="flex: 1; margin-top: 4px;">
+      <h3 class="education-title">Bachelor Of Technology - Electronics & Communications</h3>
+      <p style="margin: 5px 0;">Osmania University — <i>Jun 2019 – Jun 2023</i></p>
+      <div class="tags" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+        <span>Student Coordinator</span>
+        <span>Project Management</span>
+        <span>Student Club</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <button onclick="backToScreen2()" class="ask-anything">Back</button>
+</div>
+
+
+<!-- Screen 7: Projects -->
+<div id="screen-7" class="main-container" style="display: none; position: relative;">
+  <span class="close-button" onclick="backToScreen2()">&times;</span>
+
+<!-- Project 1 -->
+<div class="project-card">
+  <h3 class="project-title">WhatsApp Chat Analyzer</h3>
+  <p class="project-desc">
+    Analyze WhatsApp chat data with Python and uncover insights using Pandas, Matplotlib, and Streamlit.
+  </p>
+  <div class="tags">
+    <span>Python</span>
+    <span>Streamlit</span>
+    <span>Pandas</span>
+    <span>Matplotlib</span>
+    <span>WordCloud</span>
+    <span>Seaborn</span>
+    <span>Text Processing</span>
+    <span>Data Visualization</span>
+    <span>Emoji Analysis</span>
+    <span>Virtual Environments</span>
+  </div>
+
+  <!-- ✅ GitHub link -->
+  <p style="margin-top: 10px;">
+    <a href="https://github.com/ha723-web/WhatsupChatAnalysis-" target="_blank" style="color: white; text-decoration: none;">
+      🔗 View on GitHub
+    </a>
+  </p>
+</div>
+
+<!-- Project 2 -->
+<div class="project-card">
+  <h3 class="project-title">AI-Based YouTube Video Summarizer</h3>
+  <p class="project-desc">
+    Summarize YouTube videos using Python by transcribing, extracting keywords, and generating NLP-based summaries with Streamlit and Hugging Face.
+  </p>
+  <div class="tags">
+    <span>Python</span>
+    <span>Streamlit</span>
+    <span>Hugging Face Transformers</span>
+    <span>NLP</span>
+    <span>YouTubeTranscriptAPI</span>
+    <span>Deep Translator</span>
+    <span>Torch</span>
+    <span>WordCloud</span>
+    <span>Matplotlib</span>
+    <span>Text Summarization</span>
+    <span>Virtual Environments</span>
+  </div>
+
+  <!-- ✅ GitHub link -->
+  <p style="margin-top: 10px;">
+    <a href="https://github.com/ha723-web/AI-Based-Youtube-Video-Summarizer-" target="_blank" style="color: white; text-decoration: none;">
+      🔗 View on GitHub
+    </a>
+  </p>
+</div>
+ 
+  <button onclick="backToScreen2()" class="ask-anything">Back</button>
+</div>
+<div id="screen-2" style="display: none;"></div>
+
+<!-- Screen 8: Certifications -->
+<div id="screen-8" class="screen-8" style="display: none; padding: 40px 20px; color: white; position: relative; overflow-y: auto; max-height: 100vh;">
+
+  <!-- Close button -->
+  <span class="close-button" onclick="backToScreen2()" style="position: absolute; top: 20px; right: 20px; font-size: 28px; cursor: pointer;">&times;</span>
+  
+  <!-- Cards Container -->
+  <div style="display: flex; flex-direction: column; gap: 30px; max-width: 800px; margin: 0 auto;">
+
+    <!-- Card 1 -->
+    <div style="background-color: #121212; border-radius: 12px; padding: 24px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 0 12px rgba(255,255,255,0.08);">
+      <img src="images/azure.png" alt="Azure" style="width: 50px;" />
+      <div>
+        <h3>Microsoft Azure AI Fundamentals</h3>
+        <p style="color: #ccc;"><em>LinkedIn | Issued 2024</em></p>
+        <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px;">
+        </p>
+        <div class="tags"> 
+          <span>Machine Learning</span>
+          <span>Azure AI Studio</span>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div style="background-color: #121212; border-radius: 12px; padding: 24px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 0 12px rgba(255,255,255,0.08);">
+      <img src="images/ibm.png" alt="IBM" style="width: 50px;" />
+      <div>
+        <h3>Python for Data Science</h3>
+        <p style="color: #ccc;"><em>IBM | Issued 2024</em></p>
+        <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px;">
+        </p>
+        <div class="tags">
+          <span>Python</span>
+          <span>Data Science</span>
+          <span>Pandas</span>
+          <span>OpenCV</span>
+          <span>Numpy</span>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div style="background-color: #121212; border-radius: 12px; padding: 24px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 0 12px rgba(255,255,255,0.08);">
+      <img src="images/IBM.png" alt="ML" style="width: 50px;" />
+      <div>
+        <h3>Machine Learning for Data Science Projects</h3>
+        <p style="color: #ccc;"><em>IBM | Issued 2024</em></p>
+        <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px;">
+        </p>
+        <div class="tags">
+          <span>Classification</span>
+          <span>Clustering</span>
+          <span>Regression</span>
+          <span>Supervised Learning</span>
+          <span>Unsupervised Learning</span>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div style="background-color: #121212; border-radius: 12px; padding: 24px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 0 12px rgba(255,255,255,0.08);">
+      <img src="images/aws.png" alt="AWS" style="width: 50px;" />
+      <div>
+        <h3>AWS Machine Learning Associate</h3>
+        <p style="color: #ccc;"><em>AWS | Issued 2024</em></p>
+        <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px;">
+        </p>
+        <div class="tags"> 
+          <span>AWS</span>
+          <span>ML Associate</span>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View All Badges Button -->
+    <div style="text-align: center; margin-top: 10px;">
+      <a href="https://www.credly.com/users/harshini-akunuri.ce534512" target="_blank">
+        <button class="glass-btn" style="display: flex; align-items: center; gap: 8px;">
+          <img src="images/credly-icon.png" style="width: 18px;" />
+          View All Badges
+        </button>
+      </a>
+    </div>
+
+    <!-- Back Button -->
+    <div style="text-align: center; margin-top: 30px;">
+      <button class="back-btn" onclick="showScreen('screen-2')">Back</button>
+    </div>
+  </div>
+</div>
+  <script src="script.js"></script>
+  <script>
+  function resetScreen2Layout() {
+  const screen2 = document.getElementById("screen-2");
+  screen2.innerHTML = ` 
+    <!-- ✅ Home Icon Top-Left -->
+    <div style="position: fixed; top: 20px; left: 20px; z-index: 999;">
+      <img src="images/home-icon.png" alt="Home" style="width: 40px; cursor: pointer;" onclick="showScreen('screen-1')" />
+    </div>
+
+    <!-- ✅ Mail Icon Top-Right -->
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 999;">
+      <a href="mailto:harshiniakunuri59@gmail.com" title="Send me an email">
+        <img src="images/mail.png" alt="Email" style="width: 25px; cursor: pointer;" />
+      </a>
+    </div>
+
+    <main class="screen-2-body">
+      <div class="grid-container">
+        <div class="grid-item" onclick="showScreen('screen-3')">
+          <img src="images/about-me.png" />
+          <p>ABOUT ME</p>
+        </div>
+        <div class="grid-item" onclick="showScreen('screen-4')">
+          <img src="images/skills.png" />
+          <p>SKILLS</p>
+        </div>
+        <div class="grid-item" onclick="showScreen('screen-5')">
+          <img src="images/work-experience.png" />
+          <p>WORK</p>
+        </div>
+        <div class="grid-item" onclick="showScreen('screen-6')">
+          <img src="images/education.png" />
+          <p>EDUCATION</p>
+        </div>
+        <div class="grid-item" onclick="showScreen('screen-7')">
+          <img src="images/projects.png" />
+          <p>PROJECTS</p>
+        </div>
+        <div class="grid-item" onclick="showScreen('screen-8')">
+          <img src="images/certifications.png" />
+          <p>CERTIFICATIONS</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 <strong>Harshini Akunuri.</strong> All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/harshini-akunuri/" target="_blank">
+          <img src="images/linkedin-icon.png" alt="LinkedIn" />
+        </a>
+        <a href="https://github.com/ha723-web?tab=repositories" target="_blank">
+          <img src="images/github-icon.png" alt="GitHub" />
+        </a>
+      </div>
+    </footer>
+  `;
+}
+
+  </script>
+  
+</body>
+

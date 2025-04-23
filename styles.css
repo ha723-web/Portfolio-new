@@ -1,0 +1,929 @@
+/* Reset & Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  /* 🔥 Add this */
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  background: black;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-container {
+  text-align: center;
+  background: none !important;  /* 💥 This line ensures no unwanted background */
+  box-shadow: none !important;
+}
+
+
+/* Hide screen 2 initially */
+.screen-2 {
+  display: none;
+}
+
+/* Text styles */
+.top-text {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: red;
+  transition: color 0.3s ease;
+}
+
+.bottom-text {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+/* Apply red color to "Know More?" when clicked */
+.top-text.clicked {
+  color: #ff0000; /* Red color */
+}
+
+/* Container for profile picture */
+.center-box {
+  width: 200px;
+  height: 200px;
+  background-color: #6e2c2c;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* Ensures the profile picture stays centered */
+  position: relative; /* Ensures scaling doesn't affect other content */
+}
+
+/* Profile picture styles */
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image is properly contained */
+  display: block;
+}
+
+/* Modal Styles */
+.skills-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Center the modal */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 70%;
+  overflow-y: auto;
+}
+
+/* Close button styles */
+.close-button {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #333;
+}
+
+/* Adjust list items for better spacing */
+ul {
+  list-style-type: disc; /* Adds bullet points */
+  padding-left: 20px; /* Indentation for the list */
+}
+
+/* Adjust line spacing */
+li {
+  margin-bottom: 15px; /* Space between each line */
+}
+
+/* Animation effect for profile picture when clicked */
+.profile-pic.clicked {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* Apply the GIF effect */
+.center-box.clicked {
+  background-image: url('assets/1.gif'); /* Path to your GIF */
+  background-size: cover;
+  background-position: center;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: nowrap;           /* All in one line */
+  justify-content: center;     /* Center horizontally */
+  gap: 30px;                   /* Space between blocks */
+  margin-top: 40px;
+  flex-direction: row;         /* Ensure it's horizontal */
+  flex-shrink: 0;
+  overflow-x: auto;            /* Optional: enables scrolling if screen is small */
+}
+
+.grid-item {
+  width: 160px;
+  height: 160px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-item img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.grid-item p {
+  color: black;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+}
+
+
+/* Ask Anything Button */
+.ask-anything {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: black;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.ask-anything:hover {
+  background-color: #ddd;
+}
+
+/* Add this at the bottom of your CSS */
+@keyframes popJump {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1) translateY(-10px);
+  }
+}
+
+.profile-pic.animate-pop {
+  animation: popJump 1.5s infinite ease-in-out;
+}
+
+.about-text {
+  font-size: 1.5rem;
+  max-width: 900px;
+  padding: 30px 40px;
+  line-height: 1.8;
+  color: white;
+  text-align: center;
+  margin: 0 auto; /* Center horizontally */
+  background: none !important;  /* 💥 removes dark box if inherited */
+  box-shadow: none !important;
+}
+
+.skills-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 30px auto;
+}
+
+.skill-section {
+  text-align: center;
+}
+
+.skill-title {
+  color: #ffffff;   /* 🔴 Update title color */
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.skill-tags span {
+  background-color: #3b4252;  /* Same as the other dark pill tags */
+  color: white;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin: 6px;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+
+.skill-section {
+  margin-bottom: 40px;
+  width: 90%;
+  max-width: 1000px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.experience-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-top: 6px;
+}
+
+.experience-entry h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.experience-entry p {
+  margin: 5px 0;
+  font-style: italic;
+}
+
+.experience-entry ul {
+  margin-top: 10px;
+  padding-left: 18px;
+}
+
+.experience-entry ul li {
+  margin-bottom: 6px;
+}
+
+.tags {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.tags span {
+  background-color: #3b4252; /* Dark bluish-gray */
+  color: white;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin: 5px;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+/* ✅ Scroll enabled for long screens */
+.main-container {
+  text-align: center;
+  background: none !important;
+  box-shadow: none !important;
+  overflow-y: auto;
+  max-height: 100vh;
+  padding: 15px;
+}
+
+/* ✅ Only add this if screen-5 is a separate container (optional) */
+#screen-5 {
+  overflow-y: auto;
+  max-height: 100vh;
+  padding: 40px 20px;
+}
+
+.experience-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.company-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 4px;
+  border-radius: 4px;
+}
+
+.experience-entry {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.company-logo {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.tags span {
+  background-color: #3b4252;
+  color: white;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin: 6px 6px 0 0;
+  display: inline-block;
+  font-size: 0.95rem;
+}
+
+.project-card {
+  background-color: #121212;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 40px auto;
+  max-width: 720px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+  color: white;
+  text-align: left;
+}
+
+.project-title {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.project-desc {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: flex-start;
+}
+.education-title {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.job-title {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Screen 1 Styling */
+.hero-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black;
+  text-align: center;
+}
+
+.hero-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid #e24a4a;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(226, 74, 74, 0.4);
+  margin-bottom: 25px;
+}
+
+.hero-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e24a4a;
+  margin-bottom: 10px;
+}
+
+.hero-tagline {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+.hero-btn {
+  background-color: #e24a4a;
+  color: white;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #c93d3d;
+}
+
+.hero-section {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: black;
+  padding-left: 80px;
+  color: white;
+  align-items: center; /* ✅ This centers all items horizontally */
+  text-align: center;
+}
+
+.hero-right {
+  flex: 1;
+  height: 100vh;
+}
+
+.hero-img {
+  width: 100%;
+  height: 115vh;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-greeting {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.hero-name-line {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.highlight-name {
+  color: #e24a4a;
+  font-weight: bold;
+}
+
+.hero-role {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+
+.hero-btn {
+  padding: 12px 24px;
+  background-color: #e24a4a;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.hero-btn:hover {
+  background-color: #c63e3e;
+}
+
+#screen-1 {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0 5%;
+}
+
+
+.hero-left,
+.hero-right {
+  z-index: 1;
+  position: relative;
+}
+
+#particles-js canvas {
+  filter: drop-shadow(0 0 6px white);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+
+.grid-item p {
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+.footer {
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.footer .social-icons {
+  margin-top: 8px;
+}
+
+.footer .social-icons a {
+  margin: 0 6px;
+  display: inline-block;
+}
+
+.footer .social-icons img {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s ease;
+}
+
+.footer .social-icons img:hover {
+  transform: scale(1.1);
+}
+
+
+.explore-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: #c0392b;
+}
+
+/* For screen 2 full height layout */
+.screen-2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+/* Container for grid items */
+.screen-2-body {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+} 
+
+
+.grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: nowrap; /* Prevent wrapping to new lines */
+  overflow-x: auto;   /* Scroll horizontally if screen too small */
+  padding: 40px 20px;
+}
+
+/* Individual box */
+.grid-item {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+} 
+
+.grid-item:hover {
+  transform: scale(1.05);
+}
+
+.grid-item img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.action-btn {
+  padding: 12px 24px;
+  background-color: #e24a4a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.action-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.05);
+}
+
+.tag {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.glass-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.action-btn {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  transition: background 0.3s ease;
+}
+
+.action-btn:hover {
+  background-color: #ff5f4e;
+}
+
+.edu-card {
+  display: flex;
+  align-items: center;
+  background-color: #1b1b1b;
+  border-radius: 12px;
+  padding: 20px;
+  gap: 20px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+.edu-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.edu-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+  text-align: left;
+}
+
+.edu-card p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 5px 0 10px;
+  text-align: left;
+}
+
+.edu-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.edu-tags span {
+  background-color: #3b3f4a;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.back-btn {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #e6e6e6;
+}
+
+.cert-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.cert-tags span {
+  background-color: #444a5a;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 999px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* Responsive layout tweaks */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .main-container,
+  .container {
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .center-box {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+  }
+
+  .profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.2rem;
+  }
+
+  .top-text,
+  .bottom-text {
+    font-size: 1rem;
+  }
+
+  .cert-card,
+  .project-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cert-card img,
+  .project-card img {
+    width: 40px;
+  }
+
+  .close-button {
+    font-size: 24px !important;
+    top: 10px;
+    right: 10px;
+  }
+
+  /* Adjust spacing for mobile views */
+  .screen-8, .screen-7, .screen-6, .screen-5, .screen-4 {
+    padding: 20px 10px;
+  }
+}
