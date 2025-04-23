@@ -959,3 +959,55 @@ li {
   color: #888;
 }
 
+/* Work Experience Container */
+.work-experience-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Create a 3x3 grid layout */
+  gap: 20px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Individual Work Card */
+.work-card {
+  background-color: #121212;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 720px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  text-align: left;
+}
+
+.work-card img {
+  margin-top: 4px;
+}
+
+.work-card .work-content {
+  flex: 1;
+}
+
+.work-card .tags {
+  margin: 10px 0;
+}
+
+.work-card .tags span {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #333;
+  border-radius: 4px;
+  color: white;
+}
+
+.work-card ul {
+  margin: 0;
+  padding-left: 20px;
+  padding-bottom: 0;
+}
+
+.work-card ul li {
+  margin-bottom: 10px;
+}
