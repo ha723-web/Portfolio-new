@@ -927,3 +927,35 @@ li {
     padding: 20px 10px;
   }
 }
+
+/* Container for the cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns, equal width */
+  gap: 20px; /* Adjust the gap between the cards */
+  padding: 20px;
+}
+
+/* Individual card styling */
+.card {
+  background-color: #121212;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Make the card text look nice */
+.card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.card p {
+  font-size: 14px;
+  color: #888;
+}
+
